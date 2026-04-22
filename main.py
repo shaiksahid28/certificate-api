@@ -12,6 +12,10 @@ class QueryRequest(BaseModel):
 def home():
     return {"message": "API is running"}
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.post("/v1/answer")
 def answer(data: QueryRequest):
     q = data.query.lower()
